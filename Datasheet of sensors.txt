@@ -1,0 +1,28 @@
+> Ultrasonic Sensor (HC-SR04):
+    Operating Voltage: 5V DC
+    Operating Current: 15mA
+    Measurement Range: 2cm to 400cm
+    Accuracy: 3mm
+    Trigger Input Pulse: 10μs pulse
+
+> Infrared (IR) Sensor:
+    Operating Voltage: 3.3V to 5V DC
+    Detection Range: 2cm to 30cm
+    Operating Current: 20mA
+    Output: Digital (High or Low) based on obstacle detection
+
+> Flame Sensor (KY-026):
+    Operating Voltage: 3.3V to 5V DC
+    Detection Range: Adjustable
+    Output: Digital (High or Low) based on flame detection
+
+> Buzzer:
+    Operating Voltage: 3V to 5V DC
+    Sound Output: 85dB to 95dB
+    Current Consumption: 8mA to 16mA
+    Tone: Continuous or Pulsed based on input
+
+> Vibration Motor:
+    Operating Voltage: 2V to 5V DC
+    Current Consumption: 60mA to 100mA
+    Vibration Amplitude: Adjustable

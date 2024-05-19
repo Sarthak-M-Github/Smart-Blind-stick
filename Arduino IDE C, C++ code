@@ -1,0 +1,60 @@
+// Define sensor pins
+const int flameSensorPin = A0;
+const int irSensorPin = A1;
+const int trigPin = 9;
+const int echoPin = 10;
+const int buzzerPin = 8;
+const int vibratorPin = 7;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(flameSensorPin, INPUT);
+  pinMode(irSensorPin, INPUT);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(vibratorPin, OUTPUT);
+}
+
+void loop() {
+  // Read values from sensors
+  int flameValue = analogRead(flameSensorPin);
+  int irValue = analogRead(irSensorPin);
+  
+  // Ultrasonic sensor
+  long duration, distance;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance = (duration / 2) / 29.1; // Convert distance to centimeters
+  
+  // Print sensor values to serial monitor
+  Serial.print("Flame Sensor: ");
+  Serial.print(flameValue);
+  Serial.print("\t IR Sensor: ");
+  Serial.print(irValue);
+  Serial.print("\t Distance: ");
+  Serial.println(distance);
+
+  // Check sensor values and activate buzzer and vibrator if conditions are met
+  if (flameValue < 300  || distance < 10) {
+    digitalWrite(buzzerPin, HIGH);
+    
+  } else {
+    digitalWrite(buzzerPin, LOW);
+   
+  }
+  // Check sensor values and activate buzzer and vibrator if conditions are met
+  if (flameValue < 300 || irValue < 500) {
+    
+    digitalWrite(vibratorPin, HIGH);
+  } else {
+    
+    digitalWrite(vibratorPin, LOW);
+  }
+
+  delay(1000); // Adjust the delay based on your needs
+}
